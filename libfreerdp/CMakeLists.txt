@@ -185,6 +185,15 @@ if(WITH_FFMPEG)
 	freerdp_library_add(${FFMPEG_LIBRARIES})
 endif()
 
+if (WITH_GSTREAMER_1_0)
+	set(CODEC_SRCS ${CODEC_SRCS} codec/h264_gstreamer.c)
+	freerdp_definition_add(-DWITH_GSTREAMER_1_0)
+	freerdp_include_directory_add(${GSTREAMER_1_0_INCLUDE_DIRS})
+	freerdp_library_add(${GSTREAMER_1_0_LIBRARIES})
+	MESSAGE(STATUS "I got meats")
+endif()
+
+
 if(WIN32 AND WITH_MEDIA_FOUNDATION)
 	set(CODEC_SRCS ${CODEC_SRCS} codec/h264_mf.c)
 endif()

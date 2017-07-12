@@ -457,6 +457,12 @@ static BOOL CALLBACK h264_register_subsystems(PINIT_ONCE once, PVOID param, PVOI
 	i++;
 #endif
 
+#ifdef WITH_GSTREAMER_1_0
+	extern H264_CONTEXT_SUBSYSTEM g_Subsystem_gstreamer;
+	subSystems[i] = &g_Subsystem_gstreamer;
+	i++;
+#endif
+
 #ifdef WITH_LIBAVCODEC
 	extern H264_CONTEXT_SUBSYSTEM g_Subsystem_libavcodec;
 	subSystems[i] = &g_Subsystem_libavcodec;
